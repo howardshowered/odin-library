@@ -42,3 +42,28 @@ body {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
    
 }
+
+
+ #myDialog {
+   margin: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 30%; 
+  padding: 20px;  
+  gap: 10px;  
+} 
+
+#closeDialog {
+    width:55px;
+    align-self:center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.submit {
+    align-self: center;
+} 

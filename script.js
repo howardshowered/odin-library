@@ -2,6 +2,10 @@
 const myLibrary = [];
 const dialog = document.getElementById('myDialog');
 const closeButton = document.getElementById('closeDialog'); 
+const submitButton = document.querySelector('.submit');
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const genreInput = document.querySelector('#genre');
 function Book(title, author, genre) {
     this.title = title;
     this.author = author;
@@ -19,6 +23,7 @@ function addBookToLibrary(title, author, genre) {
 function displayLibrary() {
 
     const cardContainer = document.querySelector(".card-container");
+    cardContainer.innerHTML = '';
     myLibrary.forEach( (book) => {
         const newBookDiv = document.createElement("div"); 
         newBookDiv.classList.add("card");
@@ -60,6 +65,19 @@ button.addEventListener("click", (event)=> {
 });
 
 
-    closeButton.addEventListener('click', () => {
-        dialog.close();
-    });
+closeButton.addEventListener('click', () => {
+    dialog.close();
+});
+
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    console.log(titleInput.value);
+    addBookToLibrary(titleInput.value, authorInput.value, genreInput.value);
+    titleInput.value = '';
+    authorInput.value = '';
+    genreInput.value = '';
+    displayLibrary();
+    dialog.close();
+})
+
