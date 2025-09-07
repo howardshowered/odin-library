@@ -37,7 +37,7 @@ body {
     margin-right: 25px;
     padding: 10px;
     border-radius: 12px;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(38, 102, 2);
     color:aliceblue;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
    
@@ -49,8 +49,8 @@ body {
   transform: translateX(-50%);
   left: 50%;
   top: 30%; 
-  padding: 20px;  
-  gap: 10px;  
+  padding: 25px;  
+  gap:15px;  
 } 
 
 #closeDialog {
@@ -61,9 +61,44 @@ body {
 form {
     display: flex;
     flex-direction: column;
-
+    gap: 10px;
 }
 
+input[type="text"]
+{
+    width: 225px;
+}
 .submit {
     align-self: center;
 } 
+
+.read-container {
+    display: flex;
+    gap : 10px;
+    align-items: center;
+}
+
+.read-button {
+    align-self: center;
+    width: 100px; 
+    padding:10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.delete-button {
+    align-self: center;
+    width: 100px; 
+    padding:10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.new-book-button-container
+{
+    display: flex;
+    justify-content:  flex-end;
+    gap: 10px;
+}
