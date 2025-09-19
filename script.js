@@ -8,13 +8,28 @@ const authorInput = document.querySelector('#author');
 const genreInput = document.querySelector('#genre');
 const readInput = document.querySelector('#read');
 const cardContainer = document.querySelector(".card-container");
-function Book(title, author, genre, read) {
-    this.title = title;
-    this.author = author;
-    this.genre = genre;
-    this.read = read;
-    this.uid = crypto.randomUUID();
 
+//old factory function way
+// function Book(title, author, genre, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.genre = genre;
+//     this.read = read;
+//     this.uid = crypto.randomUUID();
+
+// }
+
+//new class declaration
+class Book {
+    constructor(title, author, genre, read) {
+
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.read = read;
+        this.uid = crypto.randomUUID();
+
+    }
 }
 
 function addBookToLibrary(title, author, genre, read) {
