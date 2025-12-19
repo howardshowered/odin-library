@@ -104,6 +104,14 @@ cardContainer.addEventListener( "click", (event) => {
     }
 })
 
+authorInput.addEventListener('input', (event) => {
+    if(authorInput.validity.valueMissing)
+    {
+        console.log("empty");
+        authorInput.setCustomValidity("The author name must be filled!");
+    }
+
+});
 //test code
 addBookToLibrary("The Lord of the Rings, Fellowship of the Ring", "J.R.R. Tolkien", "fantasy", false);
 addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "fantasy", true);
@@ -131,20 +139,42 @@ button.addEventListener("click", (event)=> {
 
 
 closeButton.addEventListener('click', () => {
+    console.log("before close");
     dialog.close();
 });
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    console.log( readInput.checked);
+    if(authorInput.isValid) {
+
     
-    addBookToLibrary(titleInput.value, authorInput.value, readInput.checked);
-    titleInput.value = '';
-    authorInput.value = '';
-    genreInput.value = '';
-    readInput.checked = false;
-    displayLibrary();
-    dialog.close();
+        addBookToLibrary(titleInput.value, authorInput.value, readInput.checked);
+        titleInput.value = '';
+        authorInput.value = '';
+        genreInput.value = '';
+        readInput.checked = false;
+        displayLibrary();
+
+        dialog.close();
+    } else {
+
+        if(titleInput.validity.valueMissing)
+        {
+            titleInput.setCustomValidity("Title name must be filled out.");
+            titleInput.reportValidity();
+
+        } else if (authorInput.validity.valueMissing)
+        {
+            authorInput.setCustomValidity("Author name must be filled out.");
+            authorInput.reportValidity();
+
+        }   else if (genreInput.validity.valueMissing)
+        {
+            genreInput.setCustomValidity("Genre must be filled out");
+            genreInput.reportValidity();
+        }
+        
+    }
 })
 
